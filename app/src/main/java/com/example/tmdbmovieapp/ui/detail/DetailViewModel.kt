@@ -1,34 +1,29 @@
-package com.example.tmdbmovieapp.ui.home
+package com.example.tmdbmovieapp.ui.detail
 
+import MovieDetailResponse
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tmdbmovieapp.model.MovieItem
 import com.example.tmdbmovieapp.network.ApiClient
 import com.example.tmdbmovieapp.util.Constants
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
+class DetailViewModel : ViewModel() {
 
-class HomeViewModel : ViewModel() {
-
-    val movieList: MutableLiveData<List<MovieItem?>?> = MutableLiveData()
+    val movieResponse: MutableLiveData<MovieDetailResponse> = MutableLiveData()
     val isLoading = MutableLiveData(false)
     val errorMessage: MutableLiveData<String?> = MutableLiveData()
 
-    init {
-        getMovieList()
-    }
-
-    fun getMovieList() {
+    fun getMovieDetail(movieId: Int) {
         isLoading.value = true
 
         viewModelScope.launch {
             try {
-                val response = ApiClient.getClient().getMovieList(token = Constants.BEARER_TOKEN)
+                val response = ApiClient.getClient().getMovieDetail(movieId = movieId.toString(), token = Constants.BEARER_TOKEN)
 
                 if (response.isSuccessful) {
-                    movieList.postValue(response.body()?.movieItems)
+                    movieResponse.postValue(response.body())
                 } else {
                     if (response.message().isNullOrEmpty()) {
                         errorMessage.value = "An unknown error occured"
@@ -38,11 +33,9 @@ class HomeViewModel : ViewModel() {
                 }
             } catch (e: Exception) {
                 errorMessage.value = e.message
-            }
-            finally {
+            } finally {
                 isLoading.value = false
             }
         }
     }
-
 }
