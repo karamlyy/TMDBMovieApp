@@ -7,7 +7,11 @@ import com.example.tmdbmovieapp.databinding.ItemHomeRecyclerViewBinding
 import com.example.tmdbmovieapp.model.MovieItem
 import com.example.tmdbmovieapp.util.loadCircleImage
 
-class MovieAdapter(private  val movieList: List<MovieItem?>): RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+interface MovieClickListener {
+    fun onMovieClicked(movieId: Int?)
+}
+
+class MovieAdapter(private  val movieList: List<MovieItem?>, private val movieClickListener: MovieClickListener): RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
     class ViewHolder(val binding: ItemHomeRecyclerViewBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,5 +30,13 @@ class MovieAdapter(private  val movieList: List<MovieItem?>): RecyclerView.Adapt
         holder.binding.textViewMovieRating.text = movie?.voteAverage.toString()
 
         holder.binding.imageViewMovie.loadCircleImage(movie?.posterPath)
+
+        holder.binding.root.setOnClickListener {
+            movieClickListener.onMovieClicked(movieId = movie?.id)
+        }
     }
+
+
+
+
 }
