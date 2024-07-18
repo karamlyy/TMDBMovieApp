@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     tools:context=".ui.detail.DetailFragment">
 
     <androidx.constraintlayout.widget.Group
@@ -11,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="imageViewDetail, divider, divider2, imageViewDetailVote, textViewDetailVote, imageViewStudio, textViewDetailStudio, imageViewLanguage, textViewDetailLanguage, textViewDetailOverview"
+        app:constraint_referenced_ids="imageViewDetail, divider, divider2, imageViewDetailVote, textViewDetailVote, imageViewStudio, textViewDetailStudio, imageViewLanguage, textViewDetailLanguage, textViewDetailGenres, imageViewDetailGenres, textViewDetailReleaseDate, imageViewDetailReleaseDate, textViewDetailRuntime, imageViewDetailRuntime, textViewDetailHomepage, imageViewDetailHomepage, textViewDetailOverview"
         tools:visibility="visible" />
 
     <ImageView
@@ -114,19 +115,115 @@
         app:layout_constraintTop_toTopOf="@+id/imageViewLanguage"
         tools:text="English" />
 
+    <ImageView
+        android:id="@+id/imageViewDetailGenres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_genre"
+        app:layout_constraintEnd_toStartOf="@+id/textViewDetailGenres"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:tint="@color/grey" />
+
+    <TextView
+        android:id="@+id/textViewDetailGenres"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDetailGenres"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        tools:text="Genres" />
+
+    <ImageView
+        android:id="@+id/imageViewDetailReleaseDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_release_date"
+        app:layout_constraintEnd_toStartOf="@+id/textViewDetailReleaseDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailGenres"
+        app:tint="@color/grey" />
+
+    <TextView
+        android:id="@+id/textViewDetailReleaseDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDetailReleaseDate"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailGenres"
+        tools:text="Release Date" />
+
+    <ImageView
+        android:id="@+id/imageViewDetailRuntime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_clock"
+        app:layout_constraintEnd_toStartOf="@+id/textViewDetailRuntime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailReleaseDate"
+        app:tint="@color/grey" />
+
+    <TextView
+        android:id="@+id/textViewDetailRuntime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDetailRuntime"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailReleaseDate"
+        tools:text="Runtime" />
+
+    <ImageView
+        android:id="@+id/imageViewDetailHomepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_link"
+        app:layout_constraintEnd_toStartOf="@+id/textViewDetailHomepage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailRuntime"
+        app:tint="@color/grey" />
+
+    <TextView
+        android:id="@+id/textViewDetailHomepage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewDetailHomepage"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailRuntime"
+        tools:text="Homepage" />
+
     <TextView
         android:id="@+id/textViewDetailOverview"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
-        tools:text="Over many missions and against impossible odds, Dom Toretto and his family have outsmarted, out-nerved and outdriven every foe in their path. Now, they confront the most lethal opponent they've ever faced: A terrifying threat emerging from the shadows of the past who's fueled by blood revenge, and who is determined to shatter this family and destroy everything—and everyone—that Dom loves, forever." />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailHomepage"
+        tools:text="Overview" />
 
     <ProgressBar
         android:id="@+id/progressBarDetail"
@@ -156,6 +253,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"
         tools:text="An unknown error occurred" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

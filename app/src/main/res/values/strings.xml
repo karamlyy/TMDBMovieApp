@@ -1,7 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TMDBMovieApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="not_available">not available</string>
-    <string name="error_loading_movie">error</string>
+    <string name="app_name">TMDb Movie App</string>
+    <string name="not_available">Not Available</string>
+    <string name="error_loading_movie">An error occurred while loading the movie details.</string>
+    <string name="runtime_format">%1$d min</string>
 </resources>
