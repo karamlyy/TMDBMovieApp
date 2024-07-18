@@ -1,9 +1,9 @@
 package com.example.tmdbmovieapp.ui.detail
 
-import MovieDetailResponse
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.tmdbmovieapp.model.MovieDetailResponse
 import com.example.tmdbmovieapp.network.ApiClient
 import com.example.tmdbmovieapp.util.Constants
 import kotlinx.coroutines.launch

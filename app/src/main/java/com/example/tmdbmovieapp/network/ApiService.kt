@@ -1,6 +1,6 @@
 package com.example.tmdbmovieapp.network
 
-import MovieDetailResponse
+import com.example.tmdbmovieapp.model.MovieDetailResponse
 import com.example.tmdbmovieapp.model.MovieResponse
 import retrofit2.Response
 import retrofit2.http.GET
